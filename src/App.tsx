@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { default as Card } from './components/card';
-import { IEntity } from './types';
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-	const [products, setProducts] = useState<IEntity.IProduct[]>([]);
-
-	useEffect(() => {
-		async function Product() {
-			const data = await fetch('https://fakestoreapi.com/products');
-			const response = await data.json();
-			setProducts(response);
-		}
-		Product();
-	}, []);
-	return (
-		<div className="App">
-			{products.map(({ id, title, price, image, description }: IEntity.IProduct) => (
-				<Card key={id} title={title} price={price} thumbnail={image} description={description} />
-			))}
-		</div>
-	);
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;
