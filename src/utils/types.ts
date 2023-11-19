@@ -1,8 +1,11 @@
+export type statuses = 200 | 300 | 400 | 500;
+
 export namespace ICars {
     export interface ICar {
         id: number; // ✅
         name: string; // ✅
         type: string; // ✅
+        owner: string; // ✅
         info: string; // ✅
         capacity: number; // ✅
         gasoline: string; // ✅
@@ -15,13 +18,13 @@ export namespace ICars {
         image: string; // ✅
     }
 
-    export interface IPrice  {
+    export interface IPrice {
         daily: number; // ✅
         weekly: number; // ✅
         monthly: number; // ✅
     }
 
-    export interface IComments  {
+    export interface IComments {
         user: string; // ✅
         comment: string; // ✅
     }
@@ -48,4 +51,11 @@ export namespace IUsers {
         expireDate: number;
         cvc: number;
     }
-}  
+}
+
+export interface Response {
+    message: string;
+    status: statuses;
+    success: boolean;
+    data: ICars.ICar[] | IUsers.IUser[] | [];
+}
