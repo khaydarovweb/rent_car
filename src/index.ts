@@ -15,7 +15,7 @@ const response: Response = {
   data: [],
 };
 
-app.get("/", (req, res) => {
+app.get("/api/cars", (req, res) => {
   response.message = "Success loading cars";
   response.data = cars;
 
